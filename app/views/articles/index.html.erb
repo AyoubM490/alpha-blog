@@ -6,6 +6,7 @@
     <th>Description</th>
     <th>Show</th>
     <th>Edit</th>
+    <th>Delete</th>
   </tr>
   <% @articles.each do |article| %>
     <tr></tr>
@@ -13,5 +14,6 @@
     <td><%= article.description %></td>
     <td><%= link_to  "Show", article_path(article) %></td>
     <td><%= link_to  "Edit", edit_article_path(article) %></td>
+    <td><%= link_to  "Delete", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" } %></td>
   <% end %>
 </table>
