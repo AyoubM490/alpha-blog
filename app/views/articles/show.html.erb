@@ -1,9 +1,12 @@
-<p>
-  Title: <%= @article.title %>
-</p>
-<p>
-  Description: <%= @article.description %>
-</p>
-<%= link_to  "Edit Article", edit_article_path(@article) %><br/>
-|
-<%= link_to  "Back to articles listing", articles_path %>
+<div class="container">
+  <div class="card mb-3 my-3">
+    <h5 class="card-title">
+      <%= @article.title %>
+    </h5>
+    <p class="card-text">
+      Description: <%= @article.description %>
+    </p>
+  </div>
+  <%= link_to  "Edit Article", edit_article_path(@article), class: "me-3 btn btn-primary" %>
+  <%= link_to  "Back to articles listing", articles_path, class: "btn btn-secondary" %>
+</div>
