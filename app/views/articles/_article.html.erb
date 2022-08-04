@@ -1,0 +1,16 @@
+<% obj.each do |article| %>
+  <div class="card card-body mt-3 w-75 m-auto">
+    <h4 class="card-title"><%= link_to "#{article.title}", article_path(article), class: "text-decoration-none" %></h4>
+    <p class="card-text"><%= truncate(article.description, length: 100) %></p>
+    <% if !article.user.nil? %>
+      <div class="article-meta-details">
+        <small>Created by: <%= article.user.username %>, <%= time_ago_in_words(article.created_at) %> ago, last updated: <%= time_ago_in_words(article.updated_at) %> </small>
+      </div>
+    <% end %>
+    <div class="d-flex">
+      <span class="me-3"><%= link_to  "Show this article", article_path(article), class: "btn btn-outline-secondary" %></span>
+      <span class="me-3"><%= link_to  "Edit this article", edit_article_path(article), class: "btn btn-outline-primary" %></span>
+      <span class="me-3"><%= link_to  "Delete this article", article_path(article), data: { turbo_method: :delete, turbo_confirm: "Are you sure?" }, class: "btn btn-outline-danger" %></span>
+    </div>
+  </div>
+<% end %>
