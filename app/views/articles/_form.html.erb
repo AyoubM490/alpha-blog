@@ -1,8 +1,4 @@
-<% if @article.errors.any? %>
-  <%= @article.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-  <% end %>
-<% end %>
+<%= render "shared/errors", obj: @article %>
 <%= form_with model: @article, data: { turbo: false } do |f| %>
   <div class="mb-3">
     <%= f.label :title, class:"form-label" %><br/>
