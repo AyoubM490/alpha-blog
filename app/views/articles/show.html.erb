@@ -1,8 +1,18 @@
 <div class="container">
-  <div class="card mb-3 my-3 container">
-    <h5 class="card-title mt-3">
-      <%= @article.title %>
-    </h5>
+  <h3 class="card-title mt-3 text-center">
+    <%= @article.title %>
+  </h3>
+  <div class="card mb-3 my-3 container bg-light">
+    <div class="w-25 text-center mb-3 mx-auto bg-light mt-3">
+      <div>Created by:</div>
+      <%= link_to gravatar_for(@article.user), user_path(@article.user), class: "card-img-top mt-1" %>
+      <div class="card-body">
+        <h5 class="card-title">
+          <%= link_to @article.user.username, user_path(@article.user) %>
+        </h5>
+        <p class="card-text"><small><%= pluralize(@article.user.articles.count, "article") if @article.user.articles %></small></p>
+      </div>
+    </div>
     <p class="card-text mb-3">
       Description: <%= @article.description %>
     </p>
